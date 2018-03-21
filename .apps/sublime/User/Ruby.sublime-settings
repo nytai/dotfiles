@@ -1,0 +1,19 @@
+{
+	"extensions":
+	[
+		"rb"
+	],
+    "color_scheme": "Packages/Railscasts Extended/Railscasts Extended.tmTheme",
+    "word_separators": "./\\()\"'-:,.;<>~@#$%^&*|+=[]{}`~",
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true,
+    "extensions": [
+        "Gemfile",
+        "Gemfile.lock",
+        "Vagrantfile",
+        "Vagrantfile.ono_base",
+        "Vagrantfile.lead_playback",
+        "Vagrantfile.all",
+        "Thorfile"
+      ]
+}

@@ -1,0 +1,7 @@
+[
+    { "keys": ["super+shift+w"], "command": "close_others" },
+    { "keys": ["super+shift+t"], "command": "reopen_last_file" },
+    { "keys": ["super+shift+\\"], "command": "reveal_in_side_bar"},
+    { "keys": ["super+v"], "command": "clipboard_manager_paste", "args": { "indent": true } },
+
+]
