@@ -2,9 +2,12 @@ Gemfile.lock
 vim/bundle/*
 vim/.netrwhist
 
-.apps/sublime/Package Control.last-run
-.apps/sublime/Package Control.ca-list
-.apps/sublime/Package Control.ca-bundle
-.apps/sublime/Package Control.system-ca-bundle
-.apps/sublime/Package Control.cache/
-.apps/sublime/Package Control.ca-certs/
+.apps/sublime/User/Package Control.last-run
+.apps/sublime/User/Package Control.ca-list
+.apps/sublime/User/Package Control.ca-bundle
+.apps/sublime/User/Package Control.system-ca-bundle
+.apps/sublime/User/Package Control.cache
+.apps/sublime/User/Package Control.ca-certs
+
+.apps/sublime/User/SublimeLinter (old).sublime-settings
+

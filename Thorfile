@@ -30,8 +30,11 @@ class Dotfiles < Thor
   end
 
   desc "install_subl", "Symlink sublime settings"
-  def intall_subl
-    run("rm -rf ~#{@user}/Library/Application\ Support/Sublime\ Text\ 3/Packages/User")
+  def install_subl
+    inside("~#{@user}/Library/Application\ Support/Sublime\ Text\ 3/Packages") do
+      run("rm -rf User")
+    end
+
     link_file("#{Dir.pwd}/.apps/sublime/User", "~#{@user}/Library/Application\ Support/Sublime\ Text\ 3/Packages/User", options[:force])
   end
 end
