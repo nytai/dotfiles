@@ -2,8 +2,6 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"SideBarFolders",
-		"Tag"
 	],
 	"installed_packages":
 	[
@@ -45,7 +43,6 @@
 		"React Templates",
 		"SCSS",
 		"SideBarEnhancements",
-		"SideBarFolders",
 		"SML (Standard ML)",
 		"SublimeLinter",
 		"SublimeLinter-eslint",
@@ -53,7 +50,6 @@
 		"SublimeLinter-rubocop",
 		"SublimeLinter-ruby",
 		"SublimeTextGitX",
-		"Tag",
 		"Theme - Flatland",
 		"Theme - Spacegray",
 		"VimL",
