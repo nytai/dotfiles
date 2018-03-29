@@ -1,7 +1,5 @@
 set -g fish_greeting ''
 
-set -x PGHOST $PGHOST "localhost"
-
 set -x EDITOR (which vim)
 set -x NODE_PATH /usr/local/lib/node_modules
 set -x PATH /usr/local/bin $PATH
