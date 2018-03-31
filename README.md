@@ -1,5 +1,5 @@
 # Tai's Dotfiles
-These are some of the files I need to make the magic happen.
+These are some of the files I need placed in the right places so that I can feel at home
 
 
 ## Installation
@@ -10,4 +10,4 @@ These are some of the files I need to make the magic happen.
     thor dotfiles:install
 
 ## Inspiration
-These files are an amalgamation of configs, copy+pasted, from various corners or the inter-webs. Repo structure and general template inspired by [sferik/dotfiles](https://github.com/sferik/dotfiles)
+These files are an amalgamation of configs, some original works, some copy+pasted from various corners or the inter-webs. Repo structure and general template inspired by [sferik/dotfiles](https://github.com/sferik/dotfiles)

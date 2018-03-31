@@ -288,8 +288,10 @@ alias postgreStop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 # nvm configuration
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/Tai/google-cloud-sdk/path.bash.inc'
+if [ -f ~/.gcloud/google-cloud-sdk ] ; then
+    # The next line updates PATH for the Google Cloud SDK.
+    source '/Users/Tai/google-cloud-sdk/path.bash.inc'
 
-# The next line enables shell command completion for gcloud.
-source '/Users/Tai/google-cloud-sdk/completion.bash.inc'
+    # The next line enables shell command completion for gcloud.
+    source '/Users/Tai/google-cloud-sdk/completion.bash.inc'
+fi
