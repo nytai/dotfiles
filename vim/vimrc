@@ -134,6 +134,8 @@ set number
 set linespace=3
 set showcmd
 
+let g:javascript_plugin_flow = 1
+
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 " }}}
