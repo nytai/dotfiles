@@ -24,8 +24,8 @@ class Dotfiles < Thor
     inside("vim") do
       run("echo \"runtime vimrc\" > ~#{@user}/.vimrc")
       link_file("#{Dir.pwd}", "~#{@user}/.vim", options[:force])
-      run("git clone https://github.com/gmarik/Vundle.vim.git ./bundle/Vundle.vim")
-      run("vim +PluginInstall")
+      run("git clone https://github.com/VundleVim/Vundle.vim.git ./bundle/Vundle.vim")
+      run("vim +PluginInstall +qall")
     end
   end
 

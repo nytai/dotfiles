@@ -39,7 +39,7 @@
 [help]
   autocorrect = 1
 [merge]
-  tool = threesome
+	tool = fugitive
 [mergetool "threesome"]
   cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
   trustExitCode = true
@@ -47,3 +47,5 @@
 	helper = osxkeychain
 [rerere]
 	enabled = true
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
