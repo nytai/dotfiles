@@ -47,7 +47,12 @@ alias .4='cd ../../../../'                  # Go back 4 directory levels
 alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'            # Go back 6 directory levels
 alias edit='subl'                           # edit:         Opens any file in sublime editor
-alias num_files='echo (ls -1 | wc -l)'
+alias numfiles='echo (ls -1 | wc -l)'
 alias qfind="find . -name "
-alias show_files='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hide_files='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+
+# create a temporary dir and cd to it
+alias cdtemp='cd (mktemp -d /tmp/tmpd.(date +%s).XXX)'
+alias cdlasttemp='cd (ls -d /tmp/tmpd* | tail -n1)'

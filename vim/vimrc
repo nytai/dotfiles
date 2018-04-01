@@ -27,6 +27,9 @@ Plugin 'ervandew/supertab'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'w0rp/ale'
+Plugin 'tpope/vim-rails'
+Plugin 'scrooloose/nerdcommenter'
 
 "Front End
 Plugin 'pangloss/vim-javascript'
@@ -90,6 +93,8 @@ autocmd WinEnter * call NERDTreeQuit()
 
 " General {{{
 
+colorscheme wombat256mod
+
 set nocompatible
 filetype off
 set foldmethod=marker
@@ -126,6 +131,7 @@ set noswapfile
 set nobackup
 set number
 set linespace=3
+set showcmd
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -169,10 +175,11 @@ set pastetoggle=<F5><F5>
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
 
-" "Camel case motion (with shift)
+"Camel case motion (with shift)
 map <Space>w <Plug>CamelCaseMotion_w
 map <Space>b <Plug>CamelCaseMotion_b
 map <Space>e <Plug>CamelCaseMotion_e
-" }}}
 
-colorscheme wombat256mod
+"Remove trailing whitespace from lines
+nnoremap <F8> :let _s=@/<Bar>:%s/;\s\+$/;/e<Bar>:let @/=_s<Bar><CR>
+" }}}
