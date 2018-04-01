@@ -29,6 +29,7 @@ class Dotfiles < Thor
       run("git clone https://github.com/VundleVim/Vundle.vim.git ./bundle/Vundle.vim")
       run("vim +PluginInstall +qall")
       link_file("#{Dir.pwd}/bundle/vim-colorschemes/colors", "#{Dir.pwd}/colors", options[:force])
+      link_file("#{Dir.pwd}/init.vim", "~#{@user}/.config/nvim/init.vim", options[:force])
     end
   end
 
