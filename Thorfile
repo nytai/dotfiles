@@ -19,13 +19,16 @@ class Dotfiles < Thor
     copy_file("~#{@user}/.bash_profile", "~#{@user}/.bash_profile_backup_#{Time.now.to_i}")
     remove_file("~#{@user}/.bash_profile")
     link_file("#{Dir.pwd}/bash_profile", "~#{@user}/.bash_profile", options[:force])
+  end
 
-    # vim
+  desc "install_vim", "Symlink vimrc and setup"
+  def install_vim
     inside("vim") do
       run("echo \"runtime vimrc\" > ~#{@user}/.vimrc")
       link_file("#{Dir.pwd}", "~#{@user}/.vim", options[:force])
       run("git clone https://github.com/VundleVim/Vundle.vim.git ./bundle/Vundle.vim")
       run("vim +PluginInstall +qall")
+      link_file("#{Dir.pwd}/bundle/vim-colorschemes/colors", "#{Dir.pwd}/colors", options[:force])
     end
   end
 

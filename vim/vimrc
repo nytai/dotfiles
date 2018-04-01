@@ -3,6 +3,7 @@ set shell=/bin/sh
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
@@ -37,7 +38,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'miripiruni/CSScomb-for-Vim'
 
 "Color Schemes
-Plugin 'vim-scripts/wombat256.vim'
+Plugin 'flazz/vim-colorschemes'
 
 call vundle#end()            " required
 " }}}

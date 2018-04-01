@@ -1,6 +1,7 @@
 Gemfile.lock
 vim/bundle/*
 vim/.netrwhist
+vim/colors
 
 .apps/sublime/User/Package Control.last-run
 .apps/sublime/User/Package Control.ca-list
