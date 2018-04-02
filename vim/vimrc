@@ -94,7 +94,6 @@ autocmd WinEnter * call NERDTreeQuit()
 
 " General {{{
 
-set termguicolors
 colorscheme wombat256mod
 
 set nocompatible
