@@ -29,7 +29,7 @@ if type -q rbenv
 end
 
 #nvm
-if type -q nvm
+if test -d $HOME/.config/fish/nvm-wrapper
   source ~/.config/fish/nvm-wrapper/nvm.fish
 end
 

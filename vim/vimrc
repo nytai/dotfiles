@@ -136,7 +136,7 @@ set showcmd
 set wildmode=longest,list,full
 set wildmenu
 
-let g:javascript_plugin_flow = 1
+let javascript_plugin_flow=1
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
