@@ -4,6 +4,7 @@ set -x EDITOR (which vi)
 set -x PATH /usr/local/bin $PATH
 set -x PATH /usr/local/sbin $PATH
 set -x PATH $HOME/bin $PATH
+set -x NVM_DIR $HOME/.nvm
 
 # npm
 if test -d /usr/local/lib/node_modules

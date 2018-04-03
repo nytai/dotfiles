@@ -135,7 +135,10 @@ set linespace=3
 set showcmd
 set wildmode=longest,list,full
 set wildmenu
+set backspace=indent,eol,start
 
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
 let javascript_plugin_flow=1
 
 " Remove trailing whitespace on save
