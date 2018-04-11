@@ -34,6 +34,7 @@ Plugin 'scrooloose/nerdcommenter'
 
 "Front End
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'ap/vim-css-color'
 Plugin 'miripiruni/CSScomb-for-Vim'
 
@@ -111,6 +112,7 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencodings=utf-8
 
+set autoread
 set autoindent
 set smartindent
 set cindent
