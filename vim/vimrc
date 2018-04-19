@@ -31,6 +31,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-rails'
 Plugin 'scrooloose/nerdcommenter'
+Plugin  'jordwalke/VimSplitBalancer'
 
 "Front End
 Plugin 'pangloss/vim-javascript'
