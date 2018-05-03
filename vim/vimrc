@@ -1,4 +1,4 @@
-" Plug {{{
+" Plugged {{{
 set shell=/bin/sh
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -16,9 +16,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'bkad/CamelCaseMotion'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'kristijanhusak/vim-multiple-cursors'
-Plug 'joom/vim-commentary'
 Plug 'vim-scripts/Align'
 Plug 'valloric/MatchTagAlways'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -37,17 +37,19 @@ Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-rails'
 Plug 'scrooloose/nerdcommenter'
-Plug  'jordwalke/VimSplitBalancer'
-Plug  'reasonml-editor/vim-reason-plus'
+" Plug 'jordwalke/VimSplitBalancer'
+Plug 'reasonml-editor/vim-reason-plus'
 
 " Language Server
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+if has('nvim')
+  Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
 
-Plug 'junegunn/fzf'
-Plug 'roxma/nvim-completion-manager'
+  Plug 'junegunn/fzf'
+  Plug 'roxma/nvim-completion-manager'
+endif
 
 " Front End
 Plug 'pangloss/vim-javascript'
@@ -63,8 +65,21 @@ call plug#end()            " required
 
 " Plugin Settings {{{
 let g:windowswap_map_keys = 0 "prevent default bindings
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vcr_cassettes|log|tmp|vendor'
 let g:NERDSpaceDelims = 1
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+else
+  echo "You should install ag!"
+endif
 " }}}
 
 " Airline {{{
@@ -84,7 +99,8 @@ let NERDTreeDirArrows=0
 let NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore=['\.pyc$', '\~$']
 let NERDTreeShowLineNumbers = 1
-let NERDTreeWinSize = 25
+let NERDTreeShowHidden = 1
+let g:NERDTreeWinSize = 25
 
 function! NERDTreeQuit()
   redir => buffersoutput
@@ -112,31 +128,42 @@ autocmd WinEnter * call NERDTreeQuit()
 " }}}
 
 " Language Server {{{
-" Required for operations modifying multiple buffers like rename.
-set hidden
+if has('nvim')
+  " Required for operations modifying multiple buffers like rename.
+  set hidden
 
-" let g:LanguageClient_autoStart = 1
-let g:LanguageClient_serverCommands = {}
+  " let g:LanguageClient_autoStart = 1
+  let g:LanguageClient_serverCommands = {}
 
-if executable('javascript-typescript-stdio')
- let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
- let g:LanguageClient_serverCommands['javascript.jsx'] = ['javascript-typescript-stdio']
-  autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
-  autocmd FileType javascript.jsx setlocal omnifunc=LanguageClient#complete
+  if executable('javascript-typescript-stdio')
+    let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+    let g:LanguageClient_serverCommands['javascript.jsx'] = ['javascript-typescript-stdio']
+    autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
+    autocmd FileType javascript.jsx setlocal omnifunc=LanguageClient#complete
+  endif
+
+  if executable('ocaml-language-server')
+    let g:LanguageClient_serverCommands.reason = ['ocaml-language-server', '--stdio']
+    let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
+  endif
+
+  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
+  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 endif
 
-if executable('ocaml-language-server')
-  let g:LanguageClient_serverCommands.reason = ['ocaml-language-server', '--stdio']
-  let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
-endif
-
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " }}}
 
 " General {{{
+
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
 
 colorscheme wombat256mod
 
@@ -180,10 +207,13 @@ set backspace=indent,eol,start
 
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
-let g:javascript_plugin_flow=1
+let g:javascript_plugin_flow = 1
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Write all buffers when window goes out of focus
+autocmd FocusLost * silent! wall
 " }}}
 
 " Some Useful Key Mappings {{{
@@ -232,4 +262,3 @@ map <Space>e <Plug>CamelCaseMotion_e
 "Remove trailing whitespace from lines
 nnoremap <F8> :let _s=@/<Bar>:%s/;\s\+$/;/e<Bar>:let @/=_s<Bar><CR>
 " }}}
-

@@ -1,5 +1,7 @@
 Gemfile.lock
-vim/bundle/*
+vim/bundle
+vim/plugged
+vim/autoload
 vim/.netrwhist
 vim/colors
 
@@ -9,5 +11,4 @@ vim/colors
 .apps/sublime/User/Package Control.system-ca-bundle
 .apps/sublime/User/Package Control.cache
 .apps/sublime/User/Package Control.ca-certs
-
 .apps/sublime/User/SublimeLinter (old).sublime-settings

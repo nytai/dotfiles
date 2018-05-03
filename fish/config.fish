@@ -3,6 +3,7 @@ set -g fish_greeting ''
 set -x EDITOR (which vi)
 set -x PATH /usr/local/bin $PATH
 set -x PATH /usr/local/sbin $PATH
+set -x PATH /usr/local/opt/bin $PATH
 set -x PATH $HOME/bin $PATH
 set -x NVM_DIR $HOME/.nvm
 
@@ -32,6 +33,11 @@ end
 #nvm
 if test -d $HOME/.config/fish/nvm-wrapper
   source ~/.config/fish/nvm-wrapper/nvm.fish
+end
+
+if type -q nvim
+  alias vim='nvim'
+  set -x EDITOR (which nvim)
 end
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
