@@ -46,3 +46,7 @@ Vagrantfile
 # Rubinius files #
 ##################
 .rbx
+
+# Ignore Files #
+################
+.ignore

@@ -29,7 +29,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'wesQ3/vim-windowswap'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'kien/ctrlp.vim'
+Plug 'gabesoft/vim-ags'
 Plug 'ervandew/supertab'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'gcmt/wildfire.vim'
@@ -67,6 +69,10 @@ call plug#end()            " required
 let g:windowswap_map_keys = 0 "prevent default bindings
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vcr_cassettes|log|tmp|vendor'
 let g:NERDSpaceDelims = 1
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
+\}
 
 if executable('ag')
   " Use ag over grep
@@ -97,10 +103,10 @@ nnoremap <Space>c :NERDTreeCWD<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=0
 let NERDTreeQuitOnOpen = 1
-let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.DS_Store$']
 let NERDTreeShowLineNumbers = 1
 let NERDTreeShowHidden = 1
-let g:NERDTreeWinSize = 25
+let g:NERDTreeWinSize = 35
 
 function! NERDTreeQuit()
   redir => buffersoutput
@@ -214,23 +220,28 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Write all buffers when window goes out of focus
 autocmd FocusLost * silent! wall
+
+" remap q to close
+cabbrev q <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'close' : 'q')<CR>
+
 " }}}
 
 " Some Useful Key Mappings {{{
 
-"Split swap
+" Split swap
 nmap <Tab> :CtrlPBuffer<CR>
 nmap <Leader>f :CtrlPLine<CR>
 nnoremap <silent> <Leader>sw :call WindowSwap#EasyWindowSwap()<CR>
 nmap <Leader>` :call WindowSwap#EasyWindowSwap()<CR><Leader>[:call WindowSwap#EasyWindowSwap()<CR>
+nmap <C-S-F> :Ags<Space>
 
-"for unhighlighing the selections
+" For unhighlighing the selections
 nmap <Space>x :let @/=''<CR>
 
-"split switch
+" Split switch
 nnoremap <Leader>[ <C-W>w
 
-"System clipboard
+" System clipboard
 vmap <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
@@ -238,27 +249,34 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
-"Keep the cursor in the same place after yank
+" Keep the cursor in the same place after yank
 vmap y ygv<Esc>
 
-"Reload vimrc
+" Reload vimrc
 nmap <F5> :source ~/.vimrc<CR>
 
-"New Tab
+" New Tab
 nmap <Leader>n :tabnew<CR>
 
-"Paste mode toggle
+" Paste mode toggle
 set pastetoggle=<F5><F5>
 
-"Keep selection after indent
+" Keep selection after indent
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
 
-"Camel case motion (with shift)
+" Camel case motion (with shift)
 map <Space>w <Plug>CamelCaseMotion_w
 map <Space>b <Plug>CamelCaseMotion_b
 map <Space>e <Plug>CamelCaseMotion_e
 
-"Remove trailing whitespace from lines
+" Remove trailing whitespace from lines
 nnoremap <F8> :let _s=@/<Bar>:%s/;\s\+$/;/e<Bar>:let @/=_s<Bar><CR>
+
+" Window resize
+nnoremap <silent> <M-Up> :exe "resize " . (winheight(0) - 3)<CR>
+nnoremap <silent> <M-Down> :exe "resize " . (winheight(0) + 3)<CR>
+nnoremap <silent> <S-M-Up> :exe "vertical resize " . (winwidth(0) + 3)<CR>
+nnoremap <silent> <S-M-Down> :exe "vertical resize " . (winwidth(0) - 3)<CR>
+
 " }}}
