@@ -30,6 +30,10 @@ if type -q rbenv
   status --is-interactive; and . (rbenv init -|psub)
 end
 
+if type -q pyenv
+  status --is-interactive; and . (pyenv init -|psub)
+end
+
 #nvm
 if test -d $HOME/.config/fish/nvm-wrapper
   source ~/.config/fish/nvm-wrapper/nvm.fish
@@ -63,3 +67,5 @@ alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 # create a temporary dir and cd to it
 alias cdtemp='cd (mktemp -d /tmp/tmpd.(date +%s).XXX)'
 alias cdlasttemp='cd (ls -d /tmp/tmpd* | tail -n1)'
+set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
+
