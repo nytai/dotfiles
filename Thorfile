@@ -16,8 +16,10 @@ class Dotfiles < Thor
     link_file("#{Dir.pwd}/fish/functions", "~#{@user}/.config/fish/functions", options[:force])
 
     # bash_profile
-    copy_file("~#{@user}/.bash_profile", "~#{@user}/.bash_profile_backup_#{Time.now.to_i}")
-    remove_file("~#{@user}/.bash_profile")
+    if File.exist?(File.expand_path("~#{@user}/.bash_profile"))
+      copy_file("~#{@user}/.bash_profile", "~#{@user}/.bash_profile_backup_#{Time.now.to_i}")
+      remove_file("~#{@user}/.bash_profile")
+    end
     link_file("#{Dir.pwd}/bash_profile", "~#{@user}/.bash_profile", options[:force])
   end
 
