@@ -1,13 +1,26 @@
 class Dotfiles < Thor
   include Thor::Actions
   Thor::Sandbox::Dotfiles.source_root(File.expand_path('..', __FILE__))
+  EXCLUDED_FILES = %w[
+    Gemfile 
+    Gemfile.lock
+    Brewfile
+    Brewfile.lock.json
+    Thorfile 
+    README.md 
+    LICENSE.md 
+    fish 
+    vim 
+    bash_profile
+  ]
+  
   @user = %x[whoami].chomp
-
+  
   desc "install", "Install all dotfiles into #{@user}'s home directory"
   method_options %w( force -f ) => :boolean
   def install
     Dir['*'].each do |file|
-      next if %w[Gemfile Gemfile.lock Thorfile README.md LICENSE.md fish vim bash_profile].include?(file)
+      next if EXCLUDED_FILES.include?(file)
       link_file(file, "~#{@user}/.#{file}", options[:force])
     end
 
