@@ -335,6 +335,25 @@
           }
         }
       }
+    },
+    "tap": {
+      "homebrew/bundle": {
+        "revision": "d7bc8cf3d61097cd780b84cf8b74c7b5eb7298c5"
+      },
+      "homebrew/cask-fonts": {
+        "revision": "baeecc0c4162ad6380a10bcb33606a1c99d9f928"
+      },
+      "homebrew/core": {
+        "revision": "0f7168c67753f47fdd4891831d0d643e9c751dda"
+      },
+      "homebrew/services": {
+        "revision": "eca39722f130e8bc1e2e322588db493ca0398c01"
+      }
+    },
+    "cask": {
+      "clipy": {
+        "version": "1.2.1"
+      }
     }
   },
   "system": {

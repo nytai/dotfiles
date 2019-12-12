@@ -1,3 +1,15 @@
+# Usage:
+#   brew bundle
+#   brew bundle cleanup
+#   brew bundle cleanup --force
+
+tap 'homebrew/bundle'
+# tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
+# tap 'homebrew/cask-versions'
+tap 'homebrew/core'
+tap 'homebrew/services'
+
 # shell extensions
 brew 'thefuck'
 brew "the_silver_searcher"
@@ -21,3 +33,5 @@ brew "nvm"
 brew "sqlite"
 brew "postgresql"
 
+# Cask
+cask "clipy"
