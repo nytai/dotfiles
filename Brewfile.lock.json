@@ -207,7 +207,7 @@
         }
       },
       "sqlite": {
-        "version": "3.29.0",
+        "version": "3.30.1",
         "bottle": {
           "cellar": ":any",
           "prefix": "/usr/local",
@@ -309,6 +309,31 @@
             }
           }
         }
+      },
+      "thefuck": {
+        "version": "3.29",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/thefuck-3.29.catalina.bottle.tar.gz",
+              "sha256": "a9e1c5b8a788445cbddb0c75e76b15855e2f7d38ff97730213a58266b7c67848"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/thefuck-3.29.mojave.bottle.tar.gz",
+              "sha256": "e0d8a79a9c0c301c9d5316983ee95aaeb582ae354a6dcd1bec3ae3a16e2920bf"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/thefuck-3.29.high_sierra.bottle.tar.gz",
+              "sha256": "5eec27cd3a36614f7042b2936f943fa1a173c00f90a46b37e199ef3f359b38ab"
+            },
+            "sierra": {
+              "url": "https://homebrew.bintray.com/bottles/thefuck-3.29.sierra.bottle.tar.gz",
+              "sha256": "dbac00409d1662ad5c566f0936c296fba3dc42ce59cfa49b3bd5eb6fb9972cf5"
+            }
+          }
+        }
       }
     }
   },
@@ -318,9 +343,9 @@
         "HOMEBREW_VERSION": "2.1.16",
         "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "0f7168c67753f47fdd4891831d0d643e9c751dda",
-        "CLT": "11.0.0.0.1.1567737322",
+        "CLT": "1100.0.33.12",
         "Xcode": "11.0",
-        "macOS": "10.15"
+        "macOS": "10.15.1"
       }
     }
   }

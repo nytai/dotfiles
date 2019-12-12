@@ -69,3 +69,6 @@ alias cdtemp='cd (mktemp -d /tmp/tmpd.(date +%s).XXX)'
 alias cdlasttemp='cd (ls -d /tmp/tmpd* | tail -n1)'
 set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
 
+direnv hook fish | source
+
+thefuck --alias | source
