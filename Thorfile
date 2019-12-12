@@ -1,27 +1,21 @@
 class Dotfiles < Thor
   include Thor::Actions
   Thor::Sandbox::Dotfiles.source_root(File.expand_path('..', __FILE__))
+
+  @user = %x[whoami].chomp
+
   EXCLUDED_FILES = %w[
-    Gemfile 
-    Gemfile.lock
-    Brewfile
-    Brewfile.lock.json
-    Thorfile 
-    README.md 
-    LICENSE.md 
-    fish 
-    vim 
     bash_profile
   ]
-  
-  @user = %x[whoami].chomp
-  
+
   desc "install", "Install all dotfiles into #{@user}'s home directory"
   method_options %w( force -f ) => :boolean
   def install
-    Dir['*'].each do |file|
-      next if EXCLUDED_FILES.include?(file)
-      link_file(file, "~#{@user}/.#{file}", options[:force])
+    inside('home') do
+      Dir['*'].each do |file|
+        next if EXCLUDED_FILES.include?(file)
+        link_file(file, "~#{@user}/.#{file}", options[:force])
+      end
     end
 
     # fish
@@ -33,7 +27,7 @@ class Dotfiles < Thor
       copy_file("~#{@user}/.bash_profile", "~#{@user}/.bash_profile_backup_#{Time.now.to_i}")
       remove_file("~#{@user}/.bash_profile")
     end
-    link_file("#{Dir.pwd}/bash_profile", "~#{@user}/.bash_profile", options[:force])
+    link_file("#{Dir.pwd}/home/bash_profile", "~#{@user}/.bash_profile", options[:force])
   end
 
   desc "install_vim", "Symlink vimrc and setup"
