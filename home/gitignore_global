@@ -31,7 +31,7 @@
 ######################
 .DS_Store*
 ehthumbs.db
-Icon?
+Icon[\r]
 Thumbs.db
 
 # Vagrant files #
@@ -50,3 +50,7 @@ Vagrantfile
 # Ignore Files #
 ################
 .ignore
+
+# direnv Files #
+################
+.envrc
