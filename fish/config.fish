@@ -31,7 +31,8 @@ if type -q rbenv
 end
 
 if type -q pyenv
-  status --is-interactive; and . (pyenv init -|psub)
+ status is-interactive; and pyenv init --path | source
+ pyenv init - | source
 end
 
 #nvm

@@ -16,6 +16,7 @@ brew "the_silver_searcher"
 brew "fzf"
 brew "watch"
 brew "tmux"
+brew "watch"
 
 # misc
 brew "fish"
@@ -33,5 +34,23 @@ brew "nvm"
 brew "sqlite"
 brew "postgresql"
 
+#k8s
+brew "kube-ps1"
+brew "kubectx"
+brew "kubernetes-cli"
+brew "kubernetes-helm"
+brew "stern"
+
+# aws
+brew "awscli"
+brew "aws-iam-authenticator"
+
+# utils
+brew "jq"
+
 # Cask
 cask "clipy"
+cask "docker"
+cask "meetingbar"
+cask "chrome"
+cask "firefox"
