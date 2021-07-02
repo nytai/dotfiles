@@ -17,8 +17,8 @@ if test -d /usr/local/share/npm/bin
 end
 
 # go
-if test -d $HOME/workspace/go
-  set -x GOPATH $HOME/workspace/go
+if type -q go
+  set -x GOPATH (go env GOPATH)
   set -x -U GOBIN $GOPATH/bin
   set -x PATH $GOBIN $PATH
 end

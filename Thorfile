@@ -20,6 +20,7 @@ class Dotfiles < Thor
 
     # fish
     link_file("#{Dir.pwd}/fish/config.fish", "~#{@user}/.config/fish/config.fish", options[:force])
+    link_file("#{Dir.pwd}/fish/fish_variables", "~#{@user}/.config/fish/fish_variables", options[:force])
     link_file("#{Dir.pwd}/fish/functions", "~#{@user}/.config/fish/functions", options[:force])
 
     # bash_profile

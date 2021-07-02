@@ -11,6 +11,10 @@ function fish_prompt --description 'Write out the prompt'
     set -g __fish_prompt_normal (set_color normal)
   end
 
+  if not set -q __first_prompt_kube
+    set -g __fish_prompt_kube (set_color blue)(__kube_prompt)
+ end
+
   if not set -q -g __fish_classic_git_functions_defined
     set -g __fish_classic_git_functions_defined
 
@@ -36,7 +40,7 @@ function fish_prompt --description 'Write out the prompt'
     end
   end
 
-  set -l delim '->'
+  set -l delim '~>'
 
   switch $USER
 
@@ -73,5 +77,5 @@ function fish_prompt --description 'Write out the prompt'
     set -g __fish_prompt_host (set_color $fish_color_host)
   end
 
-  echo -s "$__fish_prompt_user" "$USER" "$__fish_prompt_normal" @ "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" ' ' "$__fish_prompt_cwd" (prompt_pwd) (set_color -o F7FF00) (__fish_git_prompt) "$__fish_prompt_normal" "$prompt_status" ' ' "$delim" ' '
+  echo -s "$__fish_prompt_user" "$USER" "$__fish_prompt_normal" @ "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" "$__fish_prompt_kube" ' ' "$__fish_prompt_cwd" (prompt_pwd) (set_color -o F7FF00) (__fish_git_prompt) "$__fish_prompt_normal" "$prompt_status" ' ' "$delim" ' '
 end

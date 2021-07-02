@@ -54,3 +54,6 @@ Vagrantfile
 # direnv Files #
 ################
 .envrc
+
+# .idea #
+.idea
