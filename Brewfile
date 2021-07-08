@@ -17,6 +17,7 @@ brew "fzf"
 brew "watch"
 brew "tmux"
 brew "watch"
+brew "starship"
 
 # misc
 brew "fish"
@@ -49,6 +50,7 @@ brew "aws-iam-authenticator"
 brew "jq"
 
 # Cask
+cask "iterm2"
 cask "clipy"
 cask "docker"
 cask "meetingbar"

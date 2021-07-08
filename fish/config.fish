@@ -35,15 +35,11 @@ if type -q pyenv
  pyenv init - | source
 end
 
-#nvm
-if test -d $HOME/.config/fish/nvm-wrapper
-  source ~/.config/fish/nvm-wrapper/nvm.fish
-end
-
-if type -q nvim
-  alias vim='nvim'
-  set -x EDITOR (which nvim)
-end
+# nvim is busted
+#if type -q nvim
+#  alias vim='nvim'
+#  set -x EDITOR (which nvim)
+#end
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
@@ -73,3 +69,5 @@ set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
 direnv hook fish | source
 
 thefuck --alias | source
+
+__check_nvm
