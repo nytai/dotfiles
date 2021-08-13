@@ -61,6 +61,15 @@ alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall 
 alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 
+# aliases for modern unix https://github.com/ibraheemdev/modern-unix
+alias cat='bat'
+alias ll='ls -la'
+alias grep='rg'
+alias ack='ag'
+alias curl='curlie'
+alias find='fd'
+alias man='tldr'
+
 # create a temporary dir and cd to it
 alias cdtemp='cd (mktemp -d /tmp/tmpd.(date +%s).XXX)'
 alias cdlasttemp='cd (ls -d /tmp/tmpd* | tail -n1)'

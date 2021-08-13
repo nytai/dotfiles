@@ -86,6 +86,9 @@ if executable('ag')
 else
   echo "You should install ag!"
 endif
+
+let g:snipMate = { 'snippet_version' : 1 }
+
 " }}}
 
 " Airline {{{
