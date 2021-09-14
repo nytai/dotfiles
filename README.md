@@ -14,7 +14,7 @@ These are some of the files I need placed in the right places so that I can feel
     bundle exec thor dotfiles:install
 
     # install vim
-    bundle exec thro dotfiles:install_vim
+    bundle exec thor dotfiles:install_vim
 ```
 
 ## Inspiration
