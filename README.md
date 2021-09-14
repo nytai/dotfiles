@@ -8,11 +8,13 @@ These are some of the files I need placed in the right places so that I can feel
     git clone git://github.com/nytai/dotfiles
     cd dotfiles
     brew bundle
-    rbenv install 2.6.3 # or later version
-    rbenv global 2.6.3
+    rbenv install # install .ruby-version
     gem install bundler
     bundle install
-    thor dotfiles:install
+    bundle exec thor dotfiles:install
+
+    # install vim
+    bundle exec thro dotfiles:install_vim
 ```
 
 ## Inspiration

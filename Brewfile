@@ -25,6 +25,8 @@ brew "git"
 brew "jq"
 brew "vim"
 brew "neovim"
+brew "direnv"
+brew "gpg"
 
 # language support
 brew "pyenv"
@@ -82,3 +84,4 @@ cask "docker"
 cask "meetingbar"
 cask "google-chrome"
 cask "firefox"
+cask "visual-studio-code"
