@@ -1,0 +1,16 @@
+[kubernetes]
+disabled = false
+style = 'blue'
+# symbol = '☸ '
+# format = '[$symbol\($context|$namespace\)]($style) '
+
+[aws]
+force_display = true
+format = 'on [$symbol($profile)(\($region\))]($style) '
+style = 'bold blue'
+[aws.region_aliases]
+us-west-2 = 'og'
+us-east-1 = 'va'
+
+[docker_context]
+disabled = true

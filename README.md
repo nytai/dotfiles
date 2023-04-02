@@ -12,6 +12,7 @@ These are some of the files I need placed in the right places so that I can feel
     gem install bundler
     bundle install
     bundle exec thor dotfiles:install
+    fisher update
 
     # install vim
     bundle exec thor dotfiles:install_vim

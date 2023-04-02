@@ -34,6 +34,8 @@
 	editor = vim
 [push]
   default = tracking
+	autoSetupRemote = true
+	autoSetupRemote = true
 [branch]
   autosetuprebase = always
 [help]
@@ -80,3 +82,5 @@
     hunk-header-file-style = red
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
+[init]
+	defaultBranch = main

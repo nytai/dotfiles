@@ -21,6 +21,7 @@ brew "starship"
 
 # misc
 brew "fish"
+brew "fisher"
 brew "git"
 brew "jq"
 brew "vim"

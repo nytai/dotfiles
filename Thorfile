@@ -19,9 +19,12 @@ class Dotfiles < Thor
     end
 
     # fish
-    link_file("#{Dir.pwd}/fish/config.fish", "~#{@user}/.config/fish/config.fish", options[:force])
-    link_file("#{Dir.pwd}/fish/fish_variables", "~#{@user}/.config/fish/fish_variables", options[:force])
-    link_file("#{Dir.pwd}/fish/functions", "~#{@user}/.config/fish/functions", options[:force])
+    inside('config') do
+      Dir['*'].each do |file|
+        link_file(file, "~#{@user}/.config/#{file}", options[:force])
+      end
+    end
+    link_file("#{Dir.pwd}/starship.toml", "~#{@user}/.config/starship.toml", options[:force])
 
     # bash_profile
     if File.exist?(File.expand_path("~#{@user}/.bash_profile"))

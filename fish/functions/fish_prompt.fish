@@ -76,6 +76,9 @@ function fish_prompt --description 'Write out the prompt'
   if not set -q __fish_prompt_host
     set -g __fish_prompt_host (set_color $fish_color_host)
   end
+  if set -q AWS_PROFILE
+    set __fish_aws_profile (set_color blue)" [aws|"$AWS_PROFILE"]"(set_color normal)
+  end
 
-  echo -s "$__fish_prompt_user" "$USER" "$__fish_prompt_normal" @ "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" "$__fish_prompt_kube" ' ' "$__fish_prompt_cwd" (prompt_pwd) (set_color -o F7FF00) (__fish_git_prompt) "$__fish_prompt_normal" "$prompt_status" ' ' "$delim" ' '
+  echo -s "$__fish_prompt_user" "$USER" "$__fish_prompt_normal" @ "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" "$__fish_prompt_kube" ' ' "$__fish_prompt_cwd" (prompt_pwd) (set_color -o F7FF00) (__fish_git_prompt) "$__fish_aws_profile" "$__fish_prompt_normal" "$prompt_status" ' ' "$delim" ' '
 end

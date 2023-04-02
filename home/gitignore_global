@@ -57,3 +57,6 @@ Vagrantfile
 
 # .idea #
 .idea
+
+# node #
+.nvmrc

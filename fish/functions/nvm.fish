@@ -6,7 +6,7 @@ function nvm-fast
 	end
 
 	set -l command $argv[1]
-	if test $command = 'use'
+	if set -q $command and test $command = 'use'
 		set target_version "unknown"
 		if test (count $argv) -eq 1
 			if test -f .nvmrc
